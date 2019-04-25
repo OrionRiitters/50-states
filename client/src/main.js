@@ -14,6 +14,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 Vue.prototype.$stateService = StateAPIService;
 
+// Add leaflet CSS
+import "leaflet/dist/leaflet.css";
+
 new Vue({
     render: h => h(App),
     router

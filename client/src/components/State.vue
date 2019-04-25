@@ -2,8 +2,16 @@
   <div class="state-summary p-2 rounded">
     <span class="m-2">{{ state.name }}</span>
     <p>
-      <input id="visited" class="m-2" type="checkbox">
+      <input id="visited" class="m-2" type="checkbox"
+             v-model="stateVisited" v-on:change="$emit('isVisited', stateName, stateVisited)">
     </p>
+
+    <p>
+      <router-link v-bind:to="{ name: 'detail', params: { state: stateName } }">
+        <img class="map-icon" src="@/assets/icons8-map.png">
+      </router-link>
+    </p>
+
   </div>
 </template>
 
@@ -14,7 +22,9 @@ export default {
     state: Object
   },
   data() {
-    return {
+      return {
+          stateName: this.state.name,
+          stateVisited: this.state.visited,
     }
   }
 }
