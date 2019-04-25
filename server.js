@@ -1,8 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var states_api = require('./routes/states.js');
+var path = require('path');
 
 var app = express();
+
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 app.use(bodyParser.json());
 
