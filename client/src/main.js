@@ -1,16 +1,20 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 
-import BootstrapVue from 'bootstrap-vue'
+import VueRouter from 'vue-router';
+import router from './router';
 
-import StateAPIService from '@/services/stateService'
+import BootstrapVue from 'bootstrap-vue';
+import StateAPIService from '@/services/stateService';
 
-Vue.use(BootstrapVue)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+Vue.use(VueRouter);
+Vue.use(BootstrapVue);
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-Vue.config.productionTip = false
+Vue.prototype.$stateService = StateAPIService;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+    render: h => h(App),
+    router
+}).$mount('#app');

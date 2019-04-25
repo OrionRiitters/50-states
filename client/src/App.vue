@@ -1,8 +1,8 @@
 <template>
   <div id="app">
   <Header></Header>
+  <RouterView></RouterView>
   <Footer></Footer>
-    <img alt="Vue logo" src="./assets/logo.png">
   </div>
 </template>
 

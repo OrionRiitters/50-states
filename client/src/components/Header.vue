@@ -1,3 +1,5 @@
+<!-- Component for site's header -->
+
 <template>
   <div class="header">
   <div class="jumbotron">
