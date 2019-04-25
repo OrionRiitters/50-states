@@ -38,11 +38,12 @@
       this.getAll()
     },
     methods: {
-      getAll() {
+        getAll() {
+            // Fill states array with states from API call
         this.$stateService.getAll().then(data => {
           this.states = data
         })
-      },
+      }, // Update state in APi with visited value
         updateVisited(stateName, stateVisited) {
             this.$stateService.setVisited(stateName, stateVisited)
                 .then(data => {
@@ -51,12 +52,13 @@
         }
     },
       computed: {
+          // Number of states visited based on length of states array filtered by visited value
           totalVisited() {
               let visited = this.states.filter(function(state) {
                   return state.visited;
               })
               return visited.length;
-          },
+          }, // If total visited == all states length, return true
           visitedAll() {
               let visited = this.states.filter(function(state) {
                   return state.visited

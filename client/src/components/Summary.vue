@@ -1,4 +1,6 @@
 <template>
+
+  <!-- This component informs the user how many states they have visited-->
   <div class="summary">
     <h3>You have visited {{ total }} {{ statesPlural }}</h3>
     <p id="visited-all" v-if="visitedAll">
@@ -13,7 +15,9 @@ export default {
   props: {
     total: Number,
     visitedAll: Boolean
-  },
+},
+
+ // If changes state to states if user has visited multiple states
   computed: {
     statesPlural() {
       return this.total === 1 ? 'state' : 'states'

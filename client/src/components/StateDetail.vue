@@ -5,6 +5,7 @@
     <p v-if="state.visited">You have visited this state</p>
     <p v-else>You have not visited this dang state!</p>
 
+    <!-- Show leaflet map  -->
     <div id="map-container">
     <l-map
 ref="stateMap"
@@ -31,21 +32,24 @@ export default {
       state: {
         name: ''
       },
+        // Return data to render with Leaflet map
         url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
         zoom: 2,
         center: [44, -103],
         bounds: null
     }
   },
-  mounted() {
+    mounted() {
       this.state.name = this.$route.params.state
       this.$refs.stateMap.mapObject.dragging.disable()
       this.fetchStateData()
   },
     methods: {
+        // Pull state's data from API
         fetchStateData() {
             this.$stateService.getOne( this.state.name )
                 .then( data => {
+                    // Take state data and use it with Leaflet map
                     this.state = data
                     this.zoom = data.zoom
                     this.center = [data.lat, data.lon]
